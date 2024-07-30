@@ -1,26 +1,26 @@
 version: '3.8'
+
 services:
   jenkins:
     image: jenkins/jenkins:lts
-    container_name: jenkins2
+    container_name: jenkins
     networks:
       - jenkins
     ports:
       - "8080:8080"
       - "50000:50000"
-    expose:
-      - 8080
-      - 50000
     volumes:
       - ./jenkins-data:/var/jenkins_home
     environment:
       DOCKER_HOST: tcp://jenkins-docker:2376
+
   jenkins-docker:
     image: docker:dind
-    container_name: jenkins-docker2
+    container_name: jenkins-docker
     privileged: true
     networks:
       - jenkins
+      - nginx-proxy
     environment:
       DOCKER_TLS_CERTDIR: /certs
     volumes:
