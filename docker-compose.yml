@@ -1,24 +1,22 @@
 version: '3.8'
 
-
-
 services:
   jenkins:
     image: jenkins/jenkins:lts
-    container_name: jenkins
+    container_name: jenkins1
     networks:
       - jenkins
     ports:
       - "8080:8080"
       - "50000:50000"
     volumes:
-      - jenkins-data:/var/jenkins_home
+      - ./jenkins-data:/var/jenkins_home
     environment:
       DOCKER_HOST: tcp://jenkins-docker:2376
 
   jenkins-docker:
     image: docker:dind
-    container_name: jenkins-docker
+    container_name: jenkins-docker1
     privileged: true
     networks:
       - jenkins
@@ -26,7 +24,7 @@ services:
     environment:
       DOCKER_TLS_CERTDIR: /certs
     volumes:
-      - jenkins-docker-certs:/certs/client
+      - ./jenkins-docker-certs:/certs/client
     ports:
       - "2376:2376"
     command: ["dockerd", "--storage-driver", "overlay2"]
