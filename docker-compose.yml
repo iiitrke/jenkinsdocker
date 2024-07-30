@@ -14,6 +14,10 @@ services:
       - jenkins-data:/var/jenkins_home
     environment:
       DOCKER_HOST: tcp://jenkins-docker:2376
+      VIRTUAL_HOST: itasca.co.in
+      VIRTUAL_PORT: 8080
+      LETSENCRYPT_HOST: itasca.co.in
+      LETSENCRYPT_EMAIL: info@itasca.co.in
 
   jenkins-docker:
     image: docker:dind
