@@ -12,6 +12,8 @@ services:
       - "50000:50000"
     volumes:
       - jenkins-data:/var/jenkins_home
+    expose:
+      - 8080
     environment:
       DOCKER_HOST: tcp://jenkins-docker:2376
       VIRTUAL_HOST: itasca.co.in
