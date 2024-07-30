@@ -22,6 +22,7 @@ services:
     privileged: true
     networks:
       - jenkins
+      - nginx-proxy
     environment:
       DOCKER_TLS_CERTDIR: /certs
     volumes:
