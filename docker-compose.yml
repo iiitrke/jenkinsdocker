@@ -35,9 +35,6 @@ services:
       - "2376:2376"
     command: ["dockerd", "--storage-driver", "overlay2"]
 
-#networks:
-#  jenkins:
-#    driver: bridge
 networks:
   jenkins:
     driver: bridge
