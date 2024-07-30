@@ -10,7 +10,7 @@ services:
       - "8080:8080"
       - "50000:50000"
     volumes:
-      - ./jenkins-data:/var/jenkins_home
+      - jenkins-data:/var/jenkins_home
     environment:
       DOCKER_HOST: tcp://jenkins-docker:2376
 
@@ -20,11 +20,10 @@ services:
     privileged: true
     networks:
       - jenkins
-      - nginx-proxy
     environment:
       DOCKER_TLS_CERTDIR: /certs
     volumes:
-      - ./jenkins-docker-certs:/certs/client
+      - jenkins-docker-certs:/certs/client
     ports:
       - "2376:2376"
     command: ["dockerd", "--storage-driver", "overlay2"]
