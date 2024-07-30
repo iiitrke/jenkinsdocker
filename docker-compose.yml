@@ -39,9 +39,6 @@ services:
 networks:
   jenkins:
     driver: bridge
-  default:
-    external:
-      name: nginx-proxy
 
 volumes:
   jenkins-data:
