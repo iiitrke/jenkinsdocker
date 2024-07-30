@@ -3,20 +3,27 @@ version: '3.8'
 services:
   jenkins:
     image: jenkins/jenkins:lts
-    container_name: jenkins1
+    container_name: jenkins
     networks:
       - jenkins
     ports:
       - "8080:8080"
       - "50000:50000"
+    expose:
+      - 8080
+      - 50000
     volumes:
       - ./jenkins-data:/var/jenkins_home
     environment:
       DOCKER_HOST: tcp://jenkins-docker:2376
+      VIRTUAL_HOST: itasca.co.in
+      VIRTUAL_PORT: 8080
+      LETSENCRYPT_HOST: itasca.co.in
+      LETSENCRYPT_EMAIL: info@itasca.co.in
 
   jenkins-docker:
     image: docker:dind
-    container_name: jenkins-docker1
+    container_name: jenkins-docker
     privileged: true
     networks:
       - jenkins
@@ -32,6 +39,9 @@ services:
 networks:
   jenkins:
     driver: bridge
+  default:
+    external:
+      name: nginx-proxy
 
 volumes:
   jenkins-data:
