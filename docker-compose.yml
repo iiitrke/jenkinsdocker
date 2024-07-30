@@ -6,6 +6,7 @@ services:
     container_name: jenkins
     networks:
       - jenkins
+      - nginx-proxy
     ports:
       - "8080:8080"
       - "50000:50000"
@@ -28,9 +29,15 @@ services:
       - "2376:2376"
     command: ["dockerd", "--storage-driver", "overlay2"]
 
+#networks:
+#  jenkins:
+#    driver: bridge
 networks:
   jenkins:
     driver: bridge
+
+  nginx-proxy:
+    external: true
 
 volumes:
   jenkins-data:
