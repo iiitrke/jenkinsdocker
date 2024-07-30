@@ -39,7 +39,6 @@ services:
 networks:
   jenkins:
     driver: bridge
-
 volumes:
   jenkins-data:
   jenkins-docker-certs:
