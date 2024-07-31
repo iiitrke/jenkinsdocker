@@ -13,7 +13,7 @@ RUN usermod -aG docker jenkins
 EXPOSE 2375
 
 # Install Docker Compose
-RUN curl -L https://github.com/docker/compose/releases/download/v2.x.x/docker-compose-linux-x86_64 -o /usr/local/bin/docker-compose
+RUN curl -L https://github.com/docker/compose/releases/download/1.29.1/docker-compose-Linux-x86_64 -o /usr/local/bin/docker-compose
 RUN chmod +x /usr/local/bin/docker-compose
 
 
