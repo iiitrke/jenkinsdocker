@@ -4,7 +4,7 @@ USER root
 
 # Install Docker
 RUN apk add --no-cache ca-certificates
-RUN apk add --no-cache docker shadow
+RUN apk add --no-cache docker docker-compose shadow
 
 # Add Jenkins user to docker group
 RUN usermod -aG docker jenkins

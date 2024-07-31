@@ -2,10 +2,7 @@ version: '3.8'
 
 services:
   jenkins:
-#    image: jenkins/jenkins:ltsce
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: jenkins/jenkins:ltsce
     container_name: jenkins
     networks:
       - jenkins
@@ -19,6 +16,7 @@ services:
       - jenkins-data:/var/jenkins_home
     environment:
       DOCKER_HOST: tcp://jenkins-docker:2376
+#      DOCKER_HOST: unix:///var/run/docker.sock
       VIRTUAL_HOST: itasca.co.in
       VIRTUAL_PORT: 8080
       LETSENCRYPT_HOST: itasca.co.in
