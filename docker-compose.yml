@@ -39,6 +39,7 @@ services:
 
 networks:
   jenkins:
+    name: jenkins
     driver: bridge
 
   nginx-proxy:
