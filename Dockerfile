@@ -9,7 +9,7 @@ RUN apk add --no-cache docker
 # Expose Docker socket for Jenkins
 EXPOSE 2375
 
-# Allow Jenkins user to access Docker
+# Allow Jenkins user to access Docker creaed
 RUN gpasswd -a jenkins docker
 
 USER jenkins
