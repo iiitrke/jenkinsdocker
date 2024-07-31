@@ -35,8 +35,10 @@ services:
       DOCKER_TLS_CERTDIR: /certs
     volumes:
       - jenkins-docker-certs:/certs/client
-    ports:
-      - "2376:2376"
+    expose:
+      - 2376
+#    ports:
+#      - "2376:2376"
     command: ["dockerd", "--storage-driver", "overlay2"]
 
 
