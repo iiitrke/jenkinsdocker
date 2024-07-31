@@ -18,7 +18,7 @@ services:
     volumes:
       - jenkins-data:/var/jenkins_home
     environment:
-      DOCKER_HOST: tcp://jenkins-docker:2376
+      DOCKER_HOST: tcp://jenkins-docker:2375
 #      DOCKER_HOST: unix:///var/run/docker.sock
       VIRTUAL_HOST: itasca.co.in
       VIRTUAL_PORT: 8080
