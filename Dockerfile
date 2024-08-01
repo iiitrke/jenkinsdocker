@@ -2,6 +2,8 @@ FROM jenkins/jenkins:lts
 
 USER root
 
+RUN addgroup -S docker && adduser -S jenkins -G docker
+
 # Install Docker and dependencies
 RUN apt-get update && apt-get install -y \
     apt-transport-https \
